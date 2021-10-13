@@ -1,0 +1,57 @@
+{
+	"name": "hot-engineer",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --config ./scripts/webpack.base.js",
+		"dev": "webpack serve --config ./scripts/webpack.dev.js",
+		"prod": "webpack --config ./scripts/webpack.prod.js"
+	},
+	"repository": "https://github.com/YanmeiLion/hot-engineer.git",
+	"author": "'yanmei' <'yanmei@gmail.com'>",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/core": "^7.15.8",
+		"@babel/plugin-transform-runtime": "^7.15.8",
+		"@babel/preset-env": "^7.15.8",
+		"@babel/preset-react": "^7.14.5",
+		"@babel/preset-typescript": "^7.15.0",
+		"@types/react": "^17.0.27",
+		"@types/react-dom": "^17.0.9",
+		"@typescript-eslint/eslint-plugin": "^5.0.0",
+		"@typescript-eslint/parser": "^5.0.0",
+		"autoprefixer": "^10.3.7",
+		"babel-loader": "^8.2.2",
+		"chalk": "^4.1.2",
+		"css-loader": "^6.4.0",
+		"cssnano": "^5.0.8",
+		"eslint": "^8.0.0",
+		"eslint-plugin-react": "^7.26.1",
+		"execa": "^5.1.1",
+		"html-webpack-plugin": "^5.3.2",
+		"inquirer": "^8.2.0",
+		"mini-css-extract-plugin": "^2.4.2",
+		"postcss": "^8.3.9",
+		"postcss-loader": "^6.1.1",
+		"prettier": "2.4.1",
+		"resolve-url-loader": "^4.0.0",
+		"sass": "^1.42.1",
+		"sass-loader": "^12.2.0",
+		"typescript": "^4.4.3",
+		"webpack": "^5.58.1",
+		"webpack-cli": "^4.9.0",
+		"webpack-dev-server": "^4.3.1"
+	},
+	"dependencies": {
+		"clean-webpack-plugin": "^4.0.0",
+		"eslint-webpack-plugin": "^3.0.1",
+		"friendly-errors-webpack-plugin": "^1.7.0",
+		"portfinder": "^1.0.28",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"webpack-merge": "^5.8.0"
+	},
+	"lint-staged": {
+		"*.{js,css,md,ts,tsx,jsx}": "prettier --write"
+	}
+}
