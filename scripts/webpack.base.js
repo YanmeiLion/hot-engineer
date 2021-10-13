@@ -25,7 +25,7 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.(sa|sc)ss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -64,14 +64,8 @@ module.exports = {
       filename: 'assets/[name].css',
     }),
     new htmlWebpackPlugin({
-      filename: 'home.html',
-      chunks: ['main'],
+      filename: 'index.html',
       template: path.resolve(__dirname, '../public/index.html'),
-    }),
-    // new htmlWebpackPlugin({
-    //   filename: 'editor.html',
-    //   chunks: ['editor'],
-    //   template: path.resolve(__dirname, '../public/index.html'),
-    // }),
+    })
   ],
 };
