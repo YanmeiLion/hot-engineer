@@ -1,0 +1,136 @@
+.batMain {
+  text-align: center;
+}
+
+.batMain .title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.batMain .title2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.batMain .instruction .info {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.batMain .instruction .info div {
+  text-align: center;
+}
+
+.batMain .instruction .info div p {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.batMain .instruction .info div i {
+  font-size: 110px;
+  background-color: #ddd;
+  width: 180px;
+  height: 180px;
+  text-align: center;
+  line-height: 180px;
+}
+
+.batMain .instruction .info div:nth-child(1) i {
+  color: #ffbf74;
+}
+
+.batMain .instruction .info div:nth-child(2) i {
+  color: gray;
+}
+
+.batMain .instruction .info div:nth-child(3) i {
+  color: #f4ea2a;
+}
+
+.batMain .palyer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.batMain .palyer p {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.batMain .palyer .info {
+  width: 100%;
+}
+
+.batMain .palyer .showInfo {
+  width: 99%;
+  background-color: #ddd;
+  border-radius: 8px;
+  height: 90px;
+  text-align: left;
+  line-height: 90px;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.batMain .palyer .showInfo img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.batMain .palyer .showInfo span {
+  font-size: 24px;
+  margin-left: 10px;
+  color: #1890ff;
+}
+
+.batMain .palyer .showInfo .delete {
+  font-size: 19px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #f5222d;
+  color: white;
+  float: right;
+  margin-top: 30px;
+}
+
+.batMain .palyer .showInfo .delete:hover {
+  cursor: pointer;
+}
+
+.batMain .palyer div {
+  width: 50%;
+}
+
+.batMain .palyer div input {
+  border: 1px #ccc solid;
+  height: 35px;
+  width: 60%;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+.batMain .palyer div Button {
+  margin-left: 3%;
+  width: 34%;
+  height: 35px;
+}
+
+.batMain .battle {
+  margin-top: 50px;
+  width: 100px;
+  height: 35px;
+  font-weight: bold;
+}
