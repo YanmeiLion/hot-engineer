@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import InfiniteScroll from 'react-infinite-scroller'
 import axios from "axios";
 import { message } from "antd";
+import 'font-awesome/css/font-awesome.css'
 
 import './assets/styles/popular'
 import loadingImg from './assets/image/loading.gif'
