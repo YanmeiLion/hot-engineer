@@ -9,7 +9,7 @@ import loadingImg from './assets/image/loading.gif'
 
 const title = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS']
 
-const aa =1;
+// const aa =1;
 
 function Popular() {
 	const [show, setShow] = useState('All')  // title
