@@ -122,7 +122,6 @@ function Popular() {
           : null
       }
 
-
       {/* 标题 */}
       <div className="title">
         <ul>
@@ -150,8 +149,6 @@ function Popular() {
           {newDiv}
         </div>
       </InfiniteScroll>
-
-
     </div>
   )
 }

@@ -16,6 +16,7 @@ function Battle(props) {
 
 	const [showBattle, setShowBattle] = useState(false)  // battle是否显示
 
+  console.log('props', props)
 
 	useEffect(() => {
 		if (submitOne && submitTwo) {
