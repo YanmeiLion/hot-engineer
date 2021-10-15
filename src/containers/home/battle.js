@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
 import './assets/styles/battle'
 import 'font-awesome/css/font-awesome.css'
 import { Button } from "antd";
 import { getData } from './http/player'
 
-function Battle() {
+function Battle(props) {
 	const [playerOne, setPlayerOne] = useState('')
 	const [playerTwo, setPlayerTwo] = useState('')
 	const [submitOne, setSubmitOne] = useState(false)
@@ -15,6 +16,7 @@ function Battle() {
 
 	const [showBattle, setShowBattle] = useState(false)  // battle是否显示
 
+
 	useEffect(() => {
 		if (submitOne && submitTwo) {
 			setShowBattle(true)
@@ -24,19 +26,19 @@ function Battle() {
 	// 获取player信息
 	const checkPlayerOne = async () => {
 		const result = await getData(playerOne)
-		if(result){
+		if (result) {
 			setImgOne(result.avatar_url)
 			setSubmitOne(true)
-		}else{
+		} else {
 			setPlayerOne('')
 		}
 	}
 	const checkPlayerTwo = async () => {
 		const result = await getData(playerTwo)
-		if(result){
+		if (result) {
 			setImgTwo(result.avatar_url)
 			setSubmitTwo(true)
-		}else{
+		} else {
 			setPlayerTwo('')
 		}
 	}
@@ -60,85 +62,94 @@ function Battle() {
 		setShowBattle(false)
 	}
 
+	// battle 结果显示
+	const toResult = () => {
+		props.history.push(`/battle/result?player1=${playerOne}&player2=${playerTwo}`)
+	}
+
+
 	return (
 		<div className='batMain'>
-			<p className='title'> Instructions </p>
-			<div className='instruction'>
-				<div className='info'>
-					<div>
-						<p> Enter two Github </p>
-						<i className="fa fa-users" aria-hidden="true"></i>
-					</div>
-					<div>
-						<p> Battle </p>
-						<i className="fa fa-fighter-jet" aria-hidden="true"></i>
-					</div>
-					<div>
-						<p> See the winner </p>
-						<i className="fa fa-trophy" aria-hidden="true"></i>
-					</div>
-				</div>
-			</div>
+			<Switch>
+				<Route path='/battle/result' component={React.lazy(() => import('./result'))} />
 
-			{/* palyer */}
-			<p className='title2'> Player </p>
+				<>
+					<p className='title'> Instructions </p>
+					<div className='instruction'>
+						<div className='info'>
+							<div>
+								<p> Enter two Github </p>
+								<i className="fa fa-users" aria-hidden="true"></i>
+							</div>
+							<div>
+								<p> Battle </p>
+								<i className="fa fa-fighter-jet" aria-hidden="true"></i>
+							</div>
+							<div>
+								<p> See the winner </p>
+								<i className="fa fa-trophy" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
 
-			<div className='palyer'>
-				<div>
-					<p> Player One </p>
+					{/* palyer */}
+					<p className='title2'> Player </p>
+
+					<div className='palyer'>
+						<div>
+							<p> Player One </p>
+							{
+								submitOne ?
+									<div className='showInfo'>
+										<img src={imgOne} alt='暂无图片' />
+										<span> {playerOne} </span>
+										<i className="fa fa-times delete" aria-hidden="true"
+											onClick={deletePlayerOne}></i>
+									</div>
+									:
+									<div className='info'>
+										<input placeholder='github username'
+											onChange={(e) => changeInputOne(e)} value={playerOne}
+										/>
+										<Button disabled={playerOne !== '' ? false : true} onClick={checkPlayerOne}>
+											submit
+										</Button>
+									</div>
+							}
+						</div>
+
+						<div>
+							<p> Player Two </p>
+							{
+								submitTwo ?
+									<div className='showInfo'>
+										<img src={imgTwo} alt='暂无图片' />
+										<span> {playerTwo} </span>
+										<i className="fa fa-times delete" aria-hidden="true"
+											onClick={deletePlayerTwo}></i>
+									</div>
+									:
+									<div className='info'>
+										<input placeholder='github username'
+											onChange={(e) => changeInputTwo(e)} value={playerTwo}
+										/>
+										<Button disabled={playerTwo !== '' ? false : true} onClick={checkPlayerTwo}>
+											submit
+										</Button>
+									</div>
+							}
+						</div>
+					</div>
+
 					{
-						submitOne ?
-							<div className='showInfo'>
-								<img src={imgOne} alt='暂无图片' />
-								<span> {playerOne} </span>
-								<i className="fa fa-times delete" aria-hidden="true"
-									onClick={deletePlayerOne}></i>
-							</div>
-							:
-							<div className='info'>
-								<input placeholder='github username'
-									onChange={(e) => changeInputOne(e)} value={playerOne}
-								/>
-								<Button disabled={playerOne !== '' ? false : true} onClick={checkPlayerOne}>
-									submit
-								</Button>
-							</div>
+						showBattle ? <Button className='battle' onClick={toResult}> battle </Button> : null
 					}
-				</div>
-
-				<div>
-					<p> Player Two </p>
-					{
-						submitTwo ?
-							<div className='showInfo'>
-								<img src={imgTwo} alt='暂无图片' />
-								<span> {playerTwo} </span>
-								<i className="fa fa-times delete" aria-hidden="true"
-									onClick={deletePlayerTwo}></i>
-							</div>
-							:
-							<div className='info'>
-								<input placeholder='github username'
-									onChange={(e) => changeInputTwo(e)} value={playerTwo}
-								/>
-								<Button disabled={playerTwo !== '' ? false : true} onClick={checkPlayerTwo}>
-									submit
-								</Button>
-							</div>
-					}
-				</div>
-			</div>
-
-			{
-				showBattle ? <Button className='battle'> battle </Button> : null
-			}
-
-
+				</>
+			</Switch>
 		</div>
+
 	)
 }
 
-export default Battle
-
-
+export default withRouter(Battle)
 

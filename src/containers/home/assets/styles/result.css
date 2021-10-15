@@ -1,0 +1,54 @@
+.resultInfo {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resultInfo .resultDiv {
+  margin-top: 20px;
+  background-color: #ddd;
+  width: 240px;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+.resultInfo .resultDiv img {
+  width: 120px;
+}
+
+.resultInfo .resultDiv .titleWin {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.resultInfo .resultDiv .score {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.resultInfo .resultDiv .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #1890ff;
+}
+
+.resultInfo .resultDiv div {
+  margin-top: 15px;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 50px;
+}
+
+.btnReset {
+  margin-top: 50px;
+  height: 40px;
+  width: 100px;
+  font-size: 18px;
+  margin-bottom: 50px;
+}

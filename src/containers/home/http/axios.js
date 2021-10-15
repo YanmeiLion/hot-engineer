@@ -15,7 +15,7 @@ newAxios.interceptors.response.use(config => {
 	if (err && err.response && err.response.status) {
 		switch (err.response.status) {
 			case 404:
-				message.error('资源找不到')
+				message.error('找不到该条信息')
 				break;
 			default:
 				break;

@@ -3,7 +3,7 @@
 import axios from './axios.js'
 
 
-export const getData = async(params) => {
+export const getData = (params) => {
     return axios
     .get('/users/' + params)
     .then(res => {
