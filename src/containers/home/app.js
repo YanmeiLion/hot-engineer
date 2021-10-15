@@ -12,7 +12,6 @@ class Loading extends Component {
 	}
 }
 
-let aa = 1;
 
 function App() {
 	return (
