@@ -17,7 +17,7 @@ function Battle(props) {
   const [showBattle, setShowBattle] = useState(false)  // battle是否显示
 
   console.log('props', props)
-  // let aa = 1;
+  let aa = 1;
 
 
   useEffect(() => {
