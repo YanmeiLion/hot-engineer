@@ -18,7 +18,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: { 'react/prop-types': 0 },
+  rules: { 
+    "react/prop-types": 0 //防止在react组件定义中缺少props验证
+  },
   settings: {
     react: {
       version: '^17.0.2',
