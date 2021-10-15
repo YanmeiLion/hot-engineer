@@ -12,7 +12,7 @@ class Loading extends Component {
 	}
 }
 
-// let a = 1;
+let aa = 1;
 
 function App() {
 	return (
@@ -28,7 +28,7 @@ function App() {
 					<Switch>
 						<Route path='/popular' component={React.lazy(() => import('./popular'))} />
 						<Route path='/battle' component={React.lazy(() => import('./battle'))} />						
-						<Route exact path='/' component={React.lazy(() => import('./battle'))} />
+						<Route exact path='/' component={React.lazy(() => import('./popular'))} />
 					</Switch>
 				</React.Suspense>
 			</div>

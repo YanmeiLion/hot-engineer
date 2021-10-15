@@ -1,4 +1,3 @@
-//.prettierignore 
 **/*.min.js
 **/*.min.css
 

@@ -1,6 +1,8 @@
-.eslintrc.js
+
+!.eslintrc.js
+
 node_modules
 public
 dist
 *.d.ts
-scripts/*
+scripts/**
