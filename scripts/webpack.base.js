@@ -10,10 +10,6 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, '../src/packages/home/index.jsx'),
   },
-  output: {
-    path: __dirname + "/dist",
-    filename: "index_bundle.js",
-  },
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, '../src'),
