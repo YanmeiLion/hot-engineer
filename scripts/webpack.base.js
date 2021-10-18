@@ -23,13 +23,13 @@ module.exports = {
     rules: [
       {
         test: /\.(t|j)sx?$/,
-        use: 'babel-loader',
-        exclude: '/node_modules/'
+        use: 'babel-loader'
       },
-      {
-        test: /\.js$/,
-        use: ['babel-loader', 'eslint-loader'],
-      },
+      // {
+      //   test: /\.js$/,
+      //   use: ['babel-loader', 'eslint-loader'],
+      //   exclude: '/node_modules/',
+      // },
       {
         test: /\.(sa|sc|c|le)ss$/,
         use: [
