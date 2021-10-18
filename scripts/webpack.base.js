@@ -1,13 +1,18 @@
 // webpack.base.js
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin  } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
   // 入口文件，这里之后会着重强调
   entry: {
     main: path.resolve(__dirname, '../src/packages/home/index.jsx'),
+  },
+  output: {
+    path: __dirname + "/dist",
+    filename: "index_bundle.js",
   },
   resolve: {
     alias: {
@@ -69,5 +74,6 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, '../public/index.html'),
     }),
+    new CleanWebpackPlugin(),
   ],
 };
