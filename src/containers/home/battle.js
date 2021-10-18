@@ -16,9 +16,9 @@ function Battle(props) {
 
   const [showBattle, setShowBattle] = useState(false) // battle是否显示
 
-  // let aa = 1
-  // let bb = 1
-  // let cc = 1
+  let aa = 1
+  let bb = 1
+  let cc = 1
 
   useEffect(() => {
     if (submitOne && submitTwo) {
