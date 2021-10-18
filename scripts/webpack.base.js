@@ -26,6 +26,10 @@ module.exports = {
         use: 'babel-loader',
       },
       {
+        test: /\.js$/,
+        use: ['babel-loader', 'eslint-loader'],
+      },
+      {
         test: /\.(sa|sc|c|le)ss$/,
         use: [
           {

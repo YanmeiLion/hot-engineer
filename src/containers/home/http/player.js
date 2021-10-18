@@ -2,17 +2,13 @@
 
 import axios from './axios.js'
 
-
-export const getData = (params) => {
-    return axios
+export const getData = params => {
+  return axios
     .get('/users/' + params)
     .then(res => {
-        return res
+      return res
     })
     .catch(err => {
-        console.log('err', err) 
-    })   
+      console.log('err', err)
+    })
 }
-
-
-
