@@ -46,6 +46,18 @@ function Battle(props) {
     }
   }
 
+  // enter事件
+  const enterOne = e => {
+    if (e.keyCode === 13) {
+      checkPlayerOne()
+    }
+  }
+  const enterTwo = e => {
+    if (e.keyCode === 13) {
+      checkPlayerTwo()
+    }
+  }
+
   // 输入player信息
   const changeInputOne = e => {
     setPlayerOne(e.target.value)
@@ -108,7 +120,12 @@ function Battle(props) {
                 </div>
               ) : (
                 <div className='info'>
-                  <input placeholder='github username' onChange={e => changeInputOne(e)} value={playerOne} />
+                  <input
+                    placeholder='github username'
+                    onChange={e => changeInputOne(e)}
+                    value={playerOne}
+                    onKeyUp={enterOne}
+                  />
                   <Button disabled={playerOne !== '' ? false : true} onClick={checkPlayerOne}>
                     submit
                   </Button>
@@ -126,7 +143,12 @@ function Battle(props) {
                 </div>
               ) : (
                 <div className='info'>
-                  <input placeholder='github username' onChange={e => changeInputTwo(e)} value={playerTwo} />
+                  <input
+                    placeholder='github username'
+                    onChange={e => changeInputTwo(e)}
+                    value={playerTwo}
+                    onKeyUp={enterTwo}
+                  />
                   <Button disabled={playerTwo !== '' ? false : true} onClick={checkPlayerTwo}>
                     submit
                   </Button>
