@@ -2,7 +2,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin  } = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -24,6 +24,7 @@ module.exports = {
       {
         test: /\.(t|j)sx?$/,
         use: 'babel-loader',
+        exclude: '/node_modules/'
       },
       {
         test: /\.js$/,
