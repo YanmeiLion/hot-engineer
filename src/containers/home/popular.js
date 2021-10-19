@@ -7,11 +7,18 @@ import 'font-awesome/css/font-awesome.css'
 import './assets/styles/popular.scss'
 import loadingImg from './assets/image/loading.gif'
 
-const title = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS']
+// 标题
+const titles = [
+  { title: 'All', key: '' },
+  { title: 'JavaScript', key: 'javascript' },
+  { title: 'Ruby', key: 'ruby' },
+  { title: 'Java', key: 'java' },
+  { title: 'CSS', key: 'css' },
+]
 
 function Popular(props) {
   // title
-  const [show, setShow] = useState('All')
+  const [show, setShow] = useState(titles[0])
   const [listData, setListData] = useState([])
   // loading
   const [loading, setLoading] = useState(true)
@@ -23,7 +30,6 @@ function Popular(props) {
 
   useEffect(() => {
     props.history.push(`/popular/language=${show}`)
-    getListData()
   }, [])
 
   useEffect(() => {
@@ -33,6 +39,7 @@ function Popular(props) {
 
   // 点击切换title
   const changeAcive = item => {
+    console.log(item)
     props.history.push(`/popular/language=${item}`)
     setShow(item)
     setPage(1)
@@ -41,24 +48,7 @@ function Popular(props) {
   }
   // 获取数据
   const getListData = async () => {
-    let lang = ''
-    switch (show) {
-      case 'JavaScript':
-        lang = 'javascript'
-        break
-      case 'Ruby':
-        lang = 'ruby'
-        break
-      case 'Java':
-        lang = 'java'
-        break
-      case 'CSS':
-        lang = 'css'
-        break
-      default:
-        lang = ''
-        break
-    }
+    const lang = show.key
     let req = `https://api.github.com/search/repositories?q=stars:%3E1${
       lang !== '' ? '+language:' + lang : ''
     }&sort=stars&order=desc&type=Repositories`
@@ -78,6 +68,9 @@ function Popular(props) {
           const data = [...listData, ...res.data.items]
           setListData(data)
           setLoading(false)
+          // 设置page
+          const pages = page + 1
+          setPage(pages)
         }
       })
       .catch(err => {
@@ -128,10 +121,9 @@ function Popular(props) {
       {/* 标题 */}
       <div className='title'>
         <ul>
-          {title.map(item => (
-            <li key={item} className={item === show ? 'active' : ''} onClick={() => changeAcive(item)}>
-              {' '}
-              {item}{' '}
+          {titles.map(item => (
+            <li key={item.title} className={item.title === show ? 'active' : ''} onClick={() => changeAcive(item)}>
+              {item.title}
             </li>
           ))}
         </ul>

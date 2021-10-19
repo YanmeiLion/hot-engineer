@@ -3,7 +3,6 @@ import { Switch, Route, NavLink } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import './assets/styles/index'
 
-
 // 定义一个动画组件,在路由很慢的情况下执行这个动画
 class Loading extends Component {
   render() {
@@ -11,7 +10,7 @@ class Loading extends Component {
   }
 }
 
-function App() {
+export function App() {
   return (
     <div>
       <div className='banner'>
@@ -30,15 +29,7 @@ function App() {
         </React.Suspense>
       </div>
 
-      <footer>
-        版权所有 &copy; ICU
-      </footer>
-
+      <footer>版权所有 &copy; ICU</footer>
     </div>
   )
-}
-
-
-export {
-  App
 }

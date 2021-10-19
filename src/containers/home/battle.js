@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import './assets/styles/battle'
 import 'font-awesome/css/font-awesome.css'
 import { Button } from 'antd'
-import { getData } from './http/player'
+import { getPlayerInfoById } from './http/player'
 
 function Battle(props) {
   const [playerOne, setPlayerOne] = useState('')
@@ -29,7 +29,7 @@ function Battle(props) {
 
   // 获取player信息
   const checkPlayerOne = async () => {
-    const result = await getData(playerOne)
+    const result = await getPlayerInfoById(playerOne)
     if (result) {
       setImgOne(result.avatar_url)
       setSubmitOne(true)
@@ -38,7 +38,7 @@ function Battle(props) {
     }
   }
   const checkPlayerTwo = async () => {
-    const result = await getData(playerTwo)
+    const result = await getPlayerInfoById(playerTwo)
     if (result) {
       setImgTwo(result.avatar_url)
       setSubmitTwo(true)
@@ -121,13 +121,8 @@ function Battle(props) {
                 </div>
               ) : (
                 <div className='info'>
-                  <input
-                    placeholder='github username'
-                    onChange={e => changeInputOne(e)}
-                    value={playerOne}
-                    onKeyUp={enterOne}
-                  />
-                  <Button disabled={playerOne !== '' ? false : true} onClick={checkPlayerOne}>
+                  <input placeholder='github username' onChange={changeInputOne} value={playerOne} onKeyUp={enterOne} />
+                  <Button disabled={playerOne ? false : true} onClick={checkPlayerOne}>
                     submit
                   </Button>
                 </div>
@@ -144,13 +139,8 @@ function Battle(props) {
                 </div>
               ) : (
                 <div className='info'>
-                  <input
-                    placeholder='github username'
-                    onChange={e => changeInputTwo(e)}
-                    value={playerTwo}
-                    onKeyUp={enterTwo}
-                  />
-                  <Button disabled={playerTwo !== '' ? false : true} onClick={checkPlayerTwo}>
+                  <input placeholder='github username' onChange={changeInputTwo} value={playerTwo} onKeyUp={enterTwo} />
+                  <Button disabled={playerTwo ? false : true} onClick={checkPlayerTwo}>
                     submit
                   </Button>
                 </div>
@@ -158,12 +148,11 @@ function Battle(props) {
             </div>
           </div>
 
-          {showBattle ? (
+          {showBattle && (
             <Button className='battle' onClick={toResult}>
-              {' '}
-              battle{' '}
+              battle
             </Button>
-          ) : null}
+          )}
         </>
       </Switch>
     </div>

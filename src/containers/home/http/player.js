@@ -2,13 +2,6 @@
 
 import axios from './axios.js'
 
-export const getData = params => {
-  return axios
-    .get('/users/' + params)
-    .then(res => {
-      return res
-    })
-    .catch(err => {
-      console.log('err', err)
-    })
+export const getPlayerInfoById = id => {
+  return axios.get(`/users/${id}`)
 }
