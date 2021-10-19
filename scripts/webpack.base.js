@@ -72,6 +72,7 @@ module.exports = {
     // 生成html名称为index.html
     // 生成使用的模板为public/index.html
     new htmlWebpackPlugin({
+      minify: true,
       filename: 'index.html',
       template: path.resolve(__dirname, '../public/index.html'),
     }),

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { message } from 'antd'
 import 'font-awesome/css/font-awesome.css'
 
-import './assets/styles/popular'
+import './assets/styles/popular.scss'
 import loadingImg from './assets/image/loading.gif'
 
 const title = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS']
